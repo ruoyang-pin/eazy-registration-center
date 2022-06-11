@@ -16,6 +16,8 @@ repositories {
 dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    implementation 'com.esotericsoftware:kryo:5.2.0'
+    implementation 'com.google.guava:guava:30.0-jre'
 }
 
 test {

@@ -1,8 +1,9 @@
 package com.open.common.domain;
 
-import lombok.Data;
+import lombok.*;
 
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.util.List;
 import java.util.Map;
 
@@ -24,24 +25,6 @@ public class InnerPacket {
      */
     private List<String> excludeClusterNames;
 
-    @Data
-    public static class InstanceInfo {
 
-        /**
-         * 实例版本
-         */
-        private int version;
-
-        /**
-         * ip地址
-         */
-        private InetAddress address;
-
-        /**
-         * 健康状态
-         */
-        private int healthCode;
-
-    }
 
 }

@@ -14,7 +14,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly project(":common")
+    implementation project(":common")
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
     compileOnly 'org.projectlombok:lombok'
@@ -23,6 +23,9 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
+    implementation 'io.netty:netty-all:4.1.54.Final'
+    implementation 'com.google.guava:guava:30.0-jre'
+
 }
 
 test {
