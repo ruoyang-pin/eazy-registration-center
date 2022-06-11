@@ -1,13 +1,15 @@
-package com.open.eazyregistrationcenter;
+package com.open.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication
-public class EazyRegistrationCenterApplication {
+public class CenterApplication {
+
+
 
     public static void main(String[] args) {
-        SpringApplication.run(EazyRegistrationCenterApplication.class, args);
+        SpringApplication.run(CenterApplication.class, args);
     }
-
 }
