@@ -14,7 +14,7 @@ import java.net.InetSocketAddress;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class InstanceInfo {
 
     /**
@@ -35,10 +35,8 @@ public class InstanceInfo {
      */
     private int healthCode;
 
-    public void copyValue(InstanceInfo other) {
-        this.setHealthCode(other.getHealthCode());
-        this.setAddress(other.getAddress());
-        this.setTimestamp(other.getTimestamp());
-    }
+
+
+
 
 }

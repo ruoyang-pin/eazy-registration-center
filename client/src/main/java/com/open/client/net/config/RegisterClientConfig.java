@@ -16,13 +16,10 @@ import java.net.InetSocketAddress;
 @Data
 public class RegisterClientConfig {
 
-    @Value("${server.host}")
     private String host;
 
-    @Value("${server.port}")
     private int port;
 
-    @Value("${client.name}")
     private String clientName;
 
     private InetSocketAddress serverAddress;

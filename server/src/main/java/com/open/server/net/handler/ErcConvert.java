@@ -8,7 +8,6 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 
 import java.net.InetSocketAddress;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import static com.open.common.enums.HealthEnum.HEALTHY;
@@ -23,7 +22,9 @@ public class ErcConvert extends ByteToMessageDecoder {
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) {
-        InstanceInfo instanceInfo = (InstanceInfo) KryoUtil.doDeserialize(ByteBufUtil.getBytes(in));
+        byte[] bytes=new byte[in.writerIndex()];
+        in.readBytes(bytes);
+        InstanceInfo instanceInfo = (InstanceInfo) KryoUtil.doDeserialize(bytes);
         instanceInfo.setHealthCode(HEALTHY.getCode());
         instanceInfo.setAddress((InetSocketAddress) ctx.pipeline().channel().remoteAddress());
         out.add(instanceInfo);

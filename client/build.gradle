@@ -17,13 +17,15 @@ dependencies {
     implementation project(":common")
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
+    implementation 'org.jetbrains:annotations:23.0.0'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
-    implementation 'io.netty:netty-all:4.1.54.Final'
+    implementation 'io.netty:netty-all:4.1.77.Final'
+    implementation 'com.google.guava:guava:31.1-jre'
 }
 
 test {

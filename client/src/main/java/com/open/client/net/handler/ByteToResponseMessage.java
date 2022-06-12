@@ -18,7 +18,9 @@ public class ByteToResponseMessage extends ByteToMessageDecoder {
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) {
-        ResponseMessage responseMessage = (ResponseMessage) KryoUtil.doDeserialize(ByteBufUtil.getBytes(in));
+        byte[] bytes = new byte[in.writerIndex()];
+        in.readBytes(bytes);
+        ResponseMessage responseMessage = (ResponseMessage) KryoUtil.doDeserialize(bytes);
         out.add(responseMessage);
     }
 

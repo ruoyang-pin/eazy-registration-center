@@ -4,6 +4,7 @@ import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;
 import com.esotericsoftware.kryo.io.Output;
 import com.open.common.domain.InstanceInfo;
+import com.open.common.domain.ResponseMessage;
 import lombok.SneakyThrows;
 
 import java.io.ByteArrayInputStream;
@@ -20,7 +21,7 @@ public class KryoUtil {
     static private final ThreadLocal<Kryo> KRYO_THREAD_LOCAL = ThreadLocal.withInitial(() -> {
         Kryo kryo = new Kryo();
         kryo.register(InstanceInfo.class);
-        kryo.register(InetSocketAddress.class);
+        kryo.register(ResponseMessage.class);
         kryo.register(int.class);
         kryo.register(String.class);
         kryo.register(long.class);
@@ -40,6 +41,7 @@ public class KryoUtil {
              Output output = new Output(byteArrayOutputStream)
         ) {
             kryo.writeClassAndObject(output, instanceInfo);
+            output.flush();
             return byteArrayOutputStream.toByteArray();
         }
     }

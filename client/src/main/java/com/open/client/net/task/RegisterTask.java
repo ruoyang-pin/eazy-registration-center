@@ -29,7 +29,7 @@ public class RegisterTask {
     private RegisterClientConfig clientConfig;
 
 
-    @Scheduled(cron = "*/1 * * * * ?")
+    @Scheduled(cron = "*/10 * * * * ?")
     public void submitInfo() {
         InetSocketAddress address = clientConfig.getServerAddress();
         ChannelFuture channelFuture = registerClient.startServer(address);
