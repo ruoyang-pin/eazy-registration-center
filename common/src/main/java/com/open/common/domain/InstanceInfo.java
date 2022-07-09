@@ -2,6 +2,7 @@ package com.open.common.domain;
 
 import lombok.*;
 
+import java.io.Serializable;
 import java.net.InetSocketAddress;
 
 /**
@@ -15,7 +16,7 @@ import java.net.InetSocketAddress;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class InstanceInfo {
+public class InstanceInfo implements Serializable {
 
     /**
      * 实例版本
@@ -34,9 +35,6 @@ public class InstanceInfo {
      * 健康状态
      */
     private int healthCode;
-
-
-
 
 
 }

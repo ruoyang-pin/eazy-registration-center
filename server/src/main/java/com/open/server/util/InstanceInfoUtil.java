@@ -1,12 +1,17 @@
 package com.open.server.util;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.open.common.domain.InstanceInfo;
 
 import java.net.InetSocketAddress;
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author rich
@@ -35,6 +40,16 @@ public class InstanceInfoUtil {
                 return map;
             }
         });
+    }
+
+    public static Map<String, List<InstanceInfo>> getInstanceInfos() {
+        Map<String, List<InstanceInfo>> result = Maps.newHashMap();
+        INSTANCE_INFO_MAP
+                .forEach((k, v) -> {
+                            result.put(k, Lists.newArrayList(v.values()));
+                        }
+                );
+        return result;
     }
 
 

@@ -5,11 +5,16 @@ import com.esotericsoftware.kryo.io.Input;
 import com.esotericsoftware.kryo.io.Output;
 import com.open.common.domain.InstanceInfo;
 import com.open.common.domain.ResponseMessage;
+import com.open.common.serializer.InetSocketAddressSerializer;
 import lombok.SneakyThrows;
+import org.objenesis.strategy.SerializingInstantiatorStrategy;
+import org.objenesis.strategy.StdInstantiatorStrategy;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.net.InetSocketAddress;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * @author rich
@@ -25,6 +30,10 @@ public class KryoUtil {
         kryo.register(int.class);
         kryo.register(String.class);
         kryo.register(long.class);
+        kryo.register(HashMap.class);
+        kryo.register(ArrayList.class);
+        kryo.register(InetSocketAddress.class, new InetSocketAddressSerializer());
+        kryo.setInstantiatorStrategy(new SerializingInstantiatorStrategy());
         return kryo;
     });
 

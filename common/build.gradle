@@ -18,6 +18,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     implementation 'com.esotericsoftware:kryo:5.2.0'
     implementation 'com.google.guava:guava:30.0-jre'
+    compileOnly 'com.esotericsoftware:kryo-serializers:0.42'
 }
 
 test {

@@ -25,6 +25,8 @@ public class RegisterClientHandler extends SimpleChannelInboundHandler<ResponseM
     protected void channelRead0(ChannelHandlerContext ctx, ResponseMessage msg) {
         if (SUCCESS.getCode() == msg.getStatus()) {
             log.info("注册到远端服务:{}成功", ctx.pipeline().channel().remoteAddress());
+            //todo 缓存到本地
+            log.info("刷新实例列表:{}",msg.getInstanceInfos());
         } else {
             log.warn("注册到远端服务:{}失败", ctx.pipeline().channel().remoteAddress());
         }
